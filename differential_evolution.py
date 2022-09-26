@@ -15,8 +15,9 @@ import numpy as np
 
 from scipy.optimize import OptimizeResult, minimize
 from scipy.optimize.optimize import _status_message
-from scipy._util import check_random_state
-from scipy.six import xrange, string_types
+
+from sklearn.utils import check_random_state¶
+from six import xrange, string_types
 import warnings
 
 
