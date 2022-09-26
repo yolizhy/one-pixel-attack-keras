@@ -1,5 +1,6 @@
 import keras
 import numpy as np
+import tensorflow as tf
 from keras.datasets import cifar10
 from keras.preprocessing.image import ImageDataGenerator
 #from tf.keras.layers.normalization import BatchNormalization
