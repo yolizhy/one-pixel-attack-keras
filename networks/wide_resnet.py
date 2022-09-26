@@ -2,8 +2,8 @@ import keras
 import numpy as np
 from keras.datasets import cifar10
 from keras.preprocessing.image import ImageDataGenerator
-from keras.layers.normalization import BatchNormalization
-from keras.layers import Conv2D, Dense, Input, add, Activation, GlobalAveragePooling2D
+#from tf.keras.layers.normalization import BatchNormalization
+from tf.keras.layers import Conv2D, Dense, Input, add, Activation, GlobalAveragePooling2D,BatchNormalization
 from keras.initializers import he_normal
 from keras.callbacks import LearningRateScheduler, TensorBoard, ModelCheckpoint
 from keras.models import Model, load_model
@@ -18,8 +18,8 @@ class WideResNet:
         self.name               = 'wide_resnet'
         self.model_filename     = 'networks/models/wide_resnet.h5'
         
-        self.depth              = 16
-        self.wide               = 8
+        self.depth              = 28
+        self.wide               = 10
         self.num_classes        = 10
         self.img_rows, self.img_cols = 32, 32
         self.img_channels       = 3
