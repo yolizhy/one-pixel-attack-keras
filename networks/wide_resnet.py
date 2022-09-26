@@ -4,7 +4,8 @@ import tensorflow as tf
 from keras.datasets import cifar10
 from keras.preprocessing.image import ImageDataGenerator
 #from tf.keras.layers.normalization import BatchNormalization
-from tf.keras.layers import Conv2D, Dense, Input, add, Activation, GlobalAveragePooling2D,BatchNormalization
+from tensorflow.keras import layers
+from layers import Conv2D, Dense, Input, add, Activation, GlobalAveragePooling2D,BatchNormalization
 from keras.initializers import he_normal
 from keras.callbacks import LearningRateScheduler, TensorBoard, ModelCheckpoint
 from keras.models import Model, load_model
