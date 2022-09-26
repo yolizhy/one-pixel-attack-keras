@@ -12,8 +12,8 @@ Added by Andrew Nelson 2014
 """
 from __future__ import division, print_function, absolute_import
 import numpy as np
-pip3 uninstall scipy
-pip3 install scipy==1.4.1
+pip uninstall scipy
+pip install scipy==1.4.1
 from scipy.optimize import OptimizeResult, minimize
 from scipy.optimize.optimize import _status_message
 from scipy._lib._util import check_random_state
