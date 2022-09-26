@@ -17,7 +17,7 @@ from scipy.optimize import OptimizeResult, minimize
 from scipy.optimize.optimize import _status_message
 
 from sklearn.utils import check_random_state
-from six import range, string_types
+from six import string_types
 import warnings
 
 
