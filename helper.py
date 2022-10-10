@@ -8,6 +8,8 @@ from matplotlib import pyplot as plt
 import pandas as pd
 import requests
 from tqdm import tqdm
+import sklearn.metrics as metrics
+
 
 
 def perturb_image(xs, img):
@@ -182,13 +184,22 @@ def evaluate_models(models, x_test, y_test):
 
         predictions = model.predict(x_test)
 
+        '''
         correct = [[model.name, i, label, np.max(pred), pred]
                    for i, (label, pred)
                    in enumerate(zip(y_test[:, 0], predictions))
                    if label == np.argmax(pred)]
         accuracy = len(correct) / len(x_test)
+        
+        yPreds = m_1.predict(testX)
+        '''
+        yPred = np.argmax(predictions, axis=1)
+        yPred = kutils.to_categorical(yPred)
+        yTrue = y_test
 
-        correct_imgs += correct
+        accuracy = metrics.accuracy_score(yTrue, yPred) 
+
+        #correct_imgs += correct
         network_stats += [[model.name, accuracy, model.count_params()]]
     return network_stats, correct_imgs
 
