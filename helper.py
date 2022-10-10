@@ -188,17 +188,24 @@ def evaluate_models(models, x_test, y_test):
         correct = [[model.name, i, label, np.max(pred), pred]
                    for i, (label, pred)
                    in enumerate(zip(y_test[:, 0], predictions))
-                   if label == np.argmax(pred)]
+                   if int(label) == int(np.argmax(pred))]
         accuracy = len(correct) / len(x_test)
         
-        yPreds = m_1.predict(testX)
+        
         '''
         yPred = np.argmax(predictions, axis=1)
         yPred = kutils.to_categorical(yPred)
         yTrue = y_test
 
         accuracy = metrics.accuracy_score(yTrue, yPred) 
-
+        print('my',accuracy)
+        
+        correct = [[model.name, i, label, np.max(pred), pred]
+                   for i, (label, pred)
+                   in enumerate(zip(y_test[:, 0], predictions))
+                   if int(label) == int(np.argmax(pred))]
+        accuracy = len(correct) / len(x_test)
+        print('his',accuracy)
         #correct_imgs += correct
         network_stats += [[model.name, accuracy, model.count_params()]]
     return network_stats, correct_imgs
