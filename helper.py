@@ -9,7 +9,7 @@ import pandas as pd
 import requests
 from tqdm import tqdm
 import sklearn.metrics as metrics
-
+import keras.utils.np_utils as kutils
 
 
 def perturb_image(xs, img):
