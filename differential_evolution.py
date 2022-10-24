@@ -14,7 +14,7 @@ from __future__ import division, print_function, absolute_import
 import numpy as np
 
 from scipy.optimize import OptimizeResult, minimize
-from scipy.optimize.optimize import _status_message
+#from scipy.optimize.optimize import _status_message
 
 from sklearn.utils import check_random_state
 from six import string_types
@@ -554,7 +554,7 @@ class DifferentialEvolutionSolver(object):
             then OptimizeResult also contains the ``jac`` attribute.
         """
         nit, warning_flag = 0, False
-        status_message = _status_message['success']
+        status_message = 'Optimization terminated successfully.'
 
         # The population may have just been initialized (all entries are
         # np.inf). If it has you have to calculate the initial energies.
@@ -571,7 +571,8 @@ class DifferentialEvolutionSolver(object):
                 next(self)
             except StopIteration:
                 warning_flag = True
-                status_message = _status_message['maxfev']
+                status_message = 'Maximum number of function evaluations has '
+                              'been exceeded.'
                 break
 
             if self.disp:
@@ -587,8 +588,7 @@ class DifferentialEvolutionSolver(object):
                                   convergence=self.tol / convergence) is True):
 
                 warning_flag = True
-                status_message = ('callback function requested stop early '
-                                  'by returning True')
+                status_message = 'callback function requested stop early by returning True'
                 break
 
             intol = (np.std(self.population_energies) <=
@@ -598,7 +598,7 @@ class DifferentialEvolutionSolver(object):
                 break
 
         else:
-            status_message = _status_message['maxiter']
+            status_message ='Maximum number of iterations has been exceeded.'
             warning_flag = True
 
         DE_result = OptimizeResult(
