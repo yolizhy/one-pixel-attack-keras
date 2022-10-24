@@ -571,8 +571,7 @@ class DifferentialEvolutionSolver(object):
                 next(self)
             except StopIteration:
                 warning_flag = True
-                status_message = 'Maximum number of function evaluations has '
-                              'been exceeded.'
+                status_message = 'Maximum number of function evaluations has been exceeded.'
                 break
 
             if self.disp:
