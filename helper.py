@@ -7,7 +7,7 @@ from keras.utils import np_utils
 from matplotlib import pyplot as plt
 import pandas as pd
 import requests
-from tqdm import tqdm
+#from tqdm import tqdm
 import sklearn.metrics as metrics
 import keras.utils.np_utils as kutils
 
@@ -225,7 +225,7 @@ def checkpoint(results, targeted=False):
     with open('networks/results/' + filename + '_results.pkl', 'wb') as file:
         pickle.dump(results, file)
 
-
+'''
 def download_from_url(url, dst):
     """
     @param: url to download file
@@ -237,7 +237,7 @@ def download_from_url(url, dst):
     with open(dst, 'wb') as f:
         for data in tqdm(r.iter_content(), unit='B', unit_scale=True):
             f.write(data)
-
+'''
 # def load_imagenet():
 #     with open('data/imagenet_class_index.json', 'r') as f:
 #         class_names = json.load(f)
